@@ -171,7 +171,7 @@
         }
 
         footer {
-           margin-top: 50px;
+            margin-top: 50px;
             bottom: 20px;
             width: 100%;
             text-align: center;
@@ -196,73 +196,103 @@
 
         /* Modal Styling */
         .modal-content {
-            border-radius: 20px; /* Rounded corners for modal */
-            border: none; /* Remove default border */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            border-radius: 20px;
+            /* Rounded corners for modal */
+            border: none;
+            /* Remove default border */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            /* Shadow effect */
         }
 
         .modal-header {
-            border-bottom: none; /* Remove default border */
-            background-color: #22d8b6; /* Header background color */
-            color: white; /* Header text color */
-            border-radius: 20px 20px 0 0; /* Rounded top corners */
+            border-bottom: none;
+            /* Remove default border */
+            background-color: #22d8b6;
+            /* Header background color */
+            color: white;
+            /* Header text color */
+            border-radius: 20px 20px 0 0;
+            /* Rounded top corners */
         }
 
         .modal-footer {
-            border-top: none; /* Remove default border */
+            border-top: none;
+            /* Remove default border */
         }
 
         .form-control,
         .form-control-file {
-            border-radius: 20px; /* Rounded corners for inputs */
-            border: 1px solid #ddd; /* Border style */
+            border-radius: 20px;
+            /* Rounded corners for inputs */
+            border: 1px solid #ddd;
+            /* Border style */
         }
 
         .form-control:focus,
         .form-control-file:focus {
-            border-color: #22d8b6; /* Focus color */
-            box-shadow: none; /* Remove default focus shadow */
+            border-color: #22d8b6;
+            /* Focus color */
+            box-shadow: none;
+            /* Remove default focus shadow */
         }
 
         /* Style for modal buttons to match chat buttons */
         .modal-footer .btn {
-            background-color: #22d8b6; /* Background color */
-            color: white; /* Text color */
-            padding: 10px 20px; /* Padding */
-            border-radius: 20px; /* Rounded corners */
-            border: none; /* Remove border */
-            cursor: pointer; /* Pointer cursor */
-            transition: background-color 0.3s ease; /* Transition for hover effect */
+            background-color: #22d8b6;
+            /* Background color */
+            color: white;
+            /* Text color */
+            padding: 10px 20px;
+            /* Padding */
+            border-radius: 20px;
+            /* Rounded corners */
+            border: none;
+            /* Remove border */
+            cursor: pointer;
+            /* Pointer cursor */
+            transition: background-color 0.3s ease;
+            /* Transition for hover effect */
         }
 
         .modal-footer .btn:hover {
-            background-color: #1ab299; /* Hover color */
+            background-color: #1ab299;
+            /* Hover color */
         }
 
         .modal-footer .btn.secondary {
-            background-color: #e1e1e1; /* Background color for secondary button */
-            color: black; /* Text color for secondary button */
+            background-color: #e1e1e1;
+            /* Background color for secondary button */
+            color: black;
+            /* Text color for secondary button */
         }
 
         .modal-footer .btn.secondary:hover {
-            background-color: #d3d3d3; /* Hover color for secondary button */
+            background-color: #d3d3d3;
+            /* Hover color for secondary button */
         }
 
         /* Drag-and-drop styling */
         .drop-area {
-            border: 2px dashed #22d8b6; /* Dashed border */
-            border-radius: 20px; /* Rounded corners */
-            padding: 20px; /* Padding */
-            text-align: center; /* Centered text */
-            transition: background-color 0.3s ease; /* Transition for background color */
+            border: 2px dashed #22d8b6;
+            /* Dashed border */
+            border-radius: 20px;
+            /* Rounded corners */
+            padding: 20px;
+            /* Padding */
+            text-align: center;
+            /* Centered text */
+            transition: background-color 0.3s ease;
+            /* Transition for background color */
         }
 
         .drop-area.hover {
-            background-color: #e1f7f3; /* Light background color on hover */
+            background-color: #e1f7f3;
+            /* Light background color on hover */
         }
 
         .drop-area button {
-            margin-top: 10px; /* Space between drop area and button */
+            margin-top: 10px;
+            /* Space between drop area and button */
         }
     </style>
 </head>
@@ -272,7 +302,7 @@
         <!-- Buttons for Chat and Upload Resume at the very top -->
         <div class="btn-container">
             <button class="btn-custom"><i class="fa fa-user"></i>My Account</button>
-            <button class="btn-custom"><i class="fa fa-comment"></i>Chat</button>
+            <button class="btn-custom" onclick="redirectToChat()"><i class="fa fa-comment"></i>Chat</button>
             <button class="btn-custom" data-toggle="modal" data-target="#uploadModal" id="uploadResumeBtn">
                 <i class="fa fa-upload"></i>Upload Resume
             </button>
@@ -285,7 +315,7 @@
         </div>
 
         <!-- Image for logo -->
-        <img src="logo.png" alt="Jobnav Logo" />
+        <img src="/logo.png" alt="Jobnav Logo" />
 
         <!-- Search box -->
         <div class="search-box">
@@ -312,10 +342,13 @@
                 <div class="modal-body">
                     <div class="drop-area" id="drop-area">
                         <p>Drag and drop your resume here or click to upload.</p>
-                        <input type="file" id="fileElem" class="form-control-file" accept=".pdf,.doc,.docx" onchange="handleFiles(this.files)" style="display: none;">
-                        <button type="button" class="btn btn-light" onclick="document.getElementById('fileElem').click();">Select File</button>
+                        <input type="file" id="fileElem" class="form-control-file" accept=".pdf,.doc,.docx"
+                            onchange="handleFiles(this.files)" style="display: none;">
+                        <button type="button" class="btn btn-light"
+                            onclick="document.getElementById('fileElem').click();">Select File</button>
                     </div>
-                    <input type="text" id="resumeNotes" class="form-control" placeholder="Add notes about your resume" />
+                    <input type="text" id="resumeNotes" class="form-control"
+                        placeholder="Add notes about your resume" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -331,6 +364,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
+        function redirectToChat() {
+            window.location.href = "https://jobnav.vercel.app/chat"; // Replace with your desired URL
+        }
+
+
         $(function () {
             $("#search-input").autocomplete({
                 source: ["Developer", "Designer", "Manager", "Analyst"], // Sample data for autocomplete
